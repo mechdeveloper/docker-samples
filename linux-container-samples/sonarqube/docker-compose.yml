@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  sonarqube:
+    image: sonarqube:8.3.1-community
+    networks: 
+      - net-sonarqube
+    ports:
+      - "9000:9000"
+    environment: 
+      - OWNER=admin
+    volumes: 
+      - "sonarqube_data:/opt/sonarqube/data"
+      - "sonarqube_logs:/opt/sonarqube/logs"
+      - "sonarqube_extensions:/opt/sonarqube/extentions"
+networks:
+  net-sonarqube:
+volumes: 
+  sonarqube_data:
+  sonarqube_logs:
+  sonarqube_extensions:
